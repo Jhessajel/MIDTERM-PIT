@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Sign In Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        .container {
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;             
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background: transparent;
+            outline: none;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .password-icon {
+            position: absolute;
+            top: 20%;
+            right: 20px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: lightgrey;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: grey;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+            font-size: 16px; 
+            font-weight: bold;         
+        }
+
+        .alternative-login {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .login-options {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .login-options button {
+            padding: 10px;
+            background-color: ghostwhite;
+            color: black;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .login-options button:hover {
+            background-color: lightgrey;
+        }
+
+        .or {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .or:before,
+        .or:after {
+            content: "-";
+            margin: 0 10px;
+            color: #ccc;
+        }
+
+        
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        
+        
+        .btn-text {
+            flex: 1; 
+            text-align: center;
+        }
+
+         .header {
+            background-color: white;
+            padding: 10px 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-left,
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: grey;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+
+        .header-logo:hover {
+            cursor: pointer;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 5px;
+        }
+
+        .header-nav-link {
+            color: black;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 15px 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease; 
+        }
+
+        .header-nav-link:hover {
+            background-color: white;
+            color: teal; 
+            text-decoration: underline; 
+        }
+
+        .vertical-line {
+            border-left: 1px solid white;
+            height: 35px;
+            margin: 22px 10px;
+        }
+
+        .horizontal-line {
+            width: 100%;
+            height: 1px;
+            background-color: white;
+            margin: 10px 0;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding: 29px 3px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 250px; 
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 10px 20px; 
+            text-decoration: none;
+            display: block;
+            font-size: 13px; 
+            font-weight: bold; 
+            transition: color 0.3s ease; 
+        }
+
+        .dropdown-content a:hover {
+            background-color: white;
+            color: teal; 
+            text-decoration: underline; 
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .footer {
+        background-color: black;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+        position: relative;
+        font-family: Arial, sans-serif;
+        }
+
+        .footer-column {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 30px;
+        }
+
+        .footer a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        margin: 10px 0;
+        }
+
+        .footer a.bold {
+        font-weight: bold;
+        }
+
+        .footer a:hover {
+        text-decoration: underline;
+        }
+
+        .icons {
+        margin-top: 20px;
+        }
+
+        .icons a {
+        display: inline-block;
+        margin: 5px 10px;
+        color: white;
+        }
+
+        .icons a img {
+        width: 30px;
+        height: auto;
+        margin-right: 10px;
+        }
+
+        .icons a:hover {
+        opacity: 0.8;
+        }
+
+        .social-icons {
+        margin-top: 20px;
+        float: right;
+        }
+
+        .social-icons a {
+        display: inline-block;
+        margin: 0 10px;
+        color: white;
+        }
+
+        .social-icons a img {
+        width: 30px;
+        height: auto;
+        }
+
+        .social-icons a:hover {
+        opacity: 0.8;
+        }
+
+        .logo-column {
+        vertical-align: top;
+        margin-right: 30px;
+        }
+
+        .logo-container {
+        text-align: center;
+        }
+
+        .logo {
+        width: 150px; 
+        height: auto;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        }
+
+        .logo a {
+        display: block;
+        }
+
+        .italic-text {
+        font-style: italic;
+        font-size: 18px;
+        }
+
+        .horizontal-line {
+        width: 100%;
+        height: 1px;
+        background-color: white;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        }
+
+        .copy-right {
+        margin-bottom: 20px;
+        color: white;
+        }
+
+        .copy-right a {
+        color: white;
+        text-decoration: none;
+        }
+
+        .bold-text {
+        font-weight: bold;
+        display: inline;
+        }
+
+        .copy-right-container {
+        text-align: center;
+        color: white;
+        margin-top: 20px;
+        }
+
+    </style>
+    <script>
+    function underlineOnClick(element) {
+        element.style.textDecoration = 'underline';
+    }
+    </script>
+    </head>
+    <body>
+
+    <header class="header">
+        <div class="header-left">
+            <a href="index.html" class="header-logo"><img src="goodlogo.png" alt="Good Eggs Logo" onclick="returnToMainMenu()"></a>
+
+    <script>
+            function returnToMainMenu() {
+            window.location.href = "#";
+        }
+    </script>
+
+            <nav class="header-nav">
+                <a href="signin.html" class="header-nav-link">Help Center</a>
+                <a href="signin.html" class="header-nav-link">Invite Friends</a>
+                <a href="signin.html" class="header-nav-link">Buy a Gift Card</a>
+                <a href="signin.html" class="header-nav-link">Join Membership</a>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <nav class="header-nav">
+                <a href="signin.html" class="header-nav-link">Shopping for Saturday</a>
+                <img src="heart.png" alt="Heart" class="icon"></a>
+                <a href="90039.html" class="header-nav-link">in 90039</a>
+                <a href="signin.html" class="header-nav-link">Favorites</a>
+                <a href="signin.html" class="header-nav-link">Sign In</a>
+            </nav>
+        </div>
+    </header>
+
+    <header class="header">
+        <nav class="header-nav header-nav-left">
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Fresh Picks</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Just In</a>
+                    <a href="signin.html">Food Lover Favorites</a>
+                    <a href="signin.html">Collaborations</a>
+                    <a href="signin.html">What's for Dinner</a>
+                    <a href="signin.html">Special Collections</a>
+                    <a href="signin.html">Select Bundles</a>
+                    <a href="signin.html">Care Packages</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Meal Solutions</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">New on the Menu</a>
+                    <a href="signin.html">Ready Made</a>
+                    <a href="signin.html">Curated Meal Kits</a>
+                    <a href="signin.html">Shop by Preparation Time</a>
+                    <a href="signin.html">Shop by Serving Size</a>
+                    <a href="signin.html">Shop by Dietary Needs</a>
+                </div>
+            </div>
+           <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Produce</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">New & Peak Season</a>
+                    <a href="signin.html">Fruits</a>
+                    <a href="signin.html">Vegetables</a>
+                    <a href="signin.html">Leafy Greens</a>
+                    <a href="signin.html">Potatoes</a>
+                    <a href="signin.html">Root Vegetables</a>
+                    <a href="signin.html">Mushrooms & Foraged</a>
+                    <a href="signin.html">Garlic & Onions</a>
+                    <a href="signin.html">Herbs</a>
+                    <a href="signin.html">Avocados</a>
+                    <a href="signin.html">Flowers & Plants</a>
+                    <a href="signin.html">Fresh Cuts & Packaged Produce</a>
+                    <a href="signin.html">Bulk Produce</a>
+                    <a href="signin.html">Fresh Deals</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Dairy</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Highlights & Discoveries</a>
+                    <a href="signin.html">Product Spotlight</a>
+                    <a href="signin.html">Milk</a>
+                    <a href="signin.html">Eggs</a>
+                    <a href="signin.html">Cheese</a>
+                    <a href="signin.html">Yogurt</a>
+                    <a href="signin.html">Cream</a>
+                    <a href="signin.html">Butter & Cultured Dairy</a>
+                    <a href="signin.html">Probiotic Dairy</a>
+                    <a href="signin.html">Ice Cream & Desserts</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Meat & Fish</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Highlights & Discoveries</a>
+                    <a href="signin.html">Product Spotlight</a>
+                    <a href="signin.html">Poultry</a>
+                    <a href="signin.html">Fish & Shellfish</a>
+                    <a href="signin.html">Beef</a>
+                    <a href="signin.html">Pork</a>
+                    <a href="signin.html">Lamb & Game Meat</a>
+                    <a href="signin.html">Sausage & Bacon</a>
+                    <a href="signin.html">Marinated & Prepared Meats</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Deli</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Highlights & Discoveries</a>
+                    <a href="signin.html">Deli Salads</a>
+                    <a href="signin.html">Snack Packs</a>
+                    <a href="signin.html">Entrees & Sides</a>
+                    <a href="signin.html">Deli Meats & Cheese</a>
+                    <a href="signin.html">Prepared Meats</a>
+                    <a href="signin.html">Dips, Salsas & Spreads</a>
+                    <a href="signin.html">Salad Dressings & Condiments</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Plant-Based</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Highlights & Discoveries</a>
+                    <a href="signin.html">Non-Dairy Milk</a>
+                    <a href="signin.html">Non-Dairy Yogurt</a>
+                    <a href="signin.html">Non-Dairy Cheese</a>
+                    <a href="signin.html">Non-Dairy Ice Cream & Desserts</a>
+                    <a href="signin.html">Meat & Seafood Alternatives</a>
+                    <a href="signin.html">Plant-Based Meal Solutions</a>
+                    <a href="signin.html">Bakery</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Frozen</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Highlights & Discoveries</a>
+                    <a href="signin.html">Appetizers & Sides</a>
+                    <a href="signin.html">Entrees</a>
+                    <a href="signin.html">Fruits</a>
+                    <a href="signin.html">Vegetables</a>
+                    <a href="signin.html">Desserts & Ice Cream</a>
+                    <a href="signin.html">Baking Ingredients</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Alcohol</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Highlights & Discoveries</a>
+                    <a href="signin.html">Product Spotlight</a>
+                    <a href="signin.html">Beer & Seltzer</a>
+                    <a href="signin.html">Cider & Hard Kombucha</a>
+                    <a href="signin.html">Spirits</a>
+                    <a href="signin.html">Red Wine</a>
+                    <a href="signin.html">White Wine</a>
+                    <a href="signin.html">Rose Wine</a>
+                    <a href="signin.html">Orange Wine</a>
+                    <a href="signin.html">Sparkling Wine</a>
+                    <a href="signin.html">Boxed Wine</a>
+                    <a href="signin.html">Fortified Wine</a>
+                    <a href="signin.html">Wine Bundles</a>
+                    <a href="signin.html">Sake & Shochu</a>
+                    <a href="signin.html">Non-Alcoholic</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Snacks</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Highlights & Discoveries</a>
+                    <a href="signin.html">Chips</a>
+                    <a href="signin.html">Crackers</a>
+                    <a href="signin.html">Chocolate & Candy</a>
+                    <a href="signin.html">Dried Fruits & Nuts</a>
+                    <a href="signin.html">Bars</a>
+                    <a href="signin.html">Cookies</a>
+                    <a href="signin.html">Salsa & Dips</a>
+                    <a href="signin.html">Savory Snacks</a>
+                    <a href="signin.html">Pickles & Olives</a>
+                    <a href="signin.html">Gluten-Free Cookies</a>
+                    <a href="signin.html">Holiday & Seasonal Treats</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Drinks</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Highlights & Discoveries</a>
+                    <a href="signin.html">Water & Seltzer</a>
+                    <a href="signin.html">Juice & Smoothies</a>
+                    <a href="signin.html">Coffee</a>
+                    <a href="signin.html">Tea</a>
+                    <a href="signin.html">Kombucha & Water Kefir</a>
+                    <a href="signin.html">Soda & Mixers</a>
+                    <a href="signin.html">Sports & Energy Drinks</a>
+                    <a href="signin.html">Functional Beverages</a>
+                    <a href="signin.html">Tonics & Elixirs</a>
+                    <a href="signin.html">Non-Alcoholic</a>
+                    <a href="signin.html">Cocoa</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Bakery</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Highlights & Discoveries</a>
+                    <a href="signin.html">Bread</a>
+                    <a href="signin.html">Bagels & Breakfast</a>
+                    <a href="signin.html">Rolls & Buns</a>
+                    <a href="signin.html">Tortillas & Flatbreads</a>
+                    <a href="signin.html">Cakes & Pies</a>
+                    <a href="signin.html">Cookies</a>
+                    <a href="signin.html">Batter & Dough</a>
+                    <a href="signin.html">Gluten-Free Bread</a>
+                    <a href="signin.html">Gluten-Free Baked Goods</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Pantry</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Highlights & Discoveries</a>
+                    <a href="signin.html">Product Spotlight</a>
+                    <a href="signin.html">Japanese Essentials</a>
+                    <a href="signin.html">Cereal & Granola</a>
+                    <a href="signin.html">Nut Butters & Fruit Spreds</a>
+                    <a href="signin.html">Pasta & Sauce</a>
+                    <a href="signin.html">Grains, Rice & Dried Beans</a>
+                    <a href="signin.html">Canned & Jarred</a>
+                    <a href="signin.html">Pickles & Olives</a>
+                    <a href="signin.html">Baking Ingredients</a>
+                    <a href="signin.html">Gluten-Free & Paleo Baking</a>
+                    <a href="signin.html">Sugars & Sweeteners</a>
+                    <a href="signin.html">Oil & Vinegar</a>
+                    <a href="signin.html">Soups & Broths</a>
+                    <a href="signin.html">Sauces & Condiments</a>
+                    <a href="signin.html">Herbs & Spices</a>
+                    <a href="signin.html">Baby Food</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Health & Home</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Highlights & Discoveries</a>
+                    <a href="signin.html">Home Garden & Flowers</a>
+                    <a href="signin.html">Pets</a>
+                    <a href="signin.html">Baby</a>
+                    <a href="signin.html">Kitchen Essentials</a>
+                    <a href="signin.html">Cleaning</a>
+                    <a href="signin.html">Laundry</a>
+                    <a href="signin.html">Trash & Compost</a>
+                    <a href="signin.html">Personal Care</a>
+                    <a href="signin.html">Vitamins & Supplements</a>
+                    <a href="signin.html">Wellness</a>
+                    <a href="signin.html">Bath & Body</a>
+                    <a href="signin.html">Skin Care</a>
+                    <a href="signin.html">Homekeeping</a>
+                    <a href="signin.html">Paper Goods</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="signin.html" class="header-nav-link">Good Deals</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Sip and Save *20% off*</a>
+                    <a href="signin.html">Good Eggs Kitchen Specials</a>
+                    <a href="signin.html">Fresh Deals</a>
+                    <a href="signin.html">Hot Deals</a>
+                    <a href="signin.html">Last Chance</a>
+                </div>
+            </div>
+            <div class="vertical-line"></div>
+            <div class="header-right">
+            <a href="signin.html" class="header-nav-link" onclick="underlineOnClick(this)">Reorder</a>
+            <a href="signin.html" onclick="underlineOnClick(this)" class="header-nav-link"><img src="searchicon.png" alt="Search" class="icon"></a>
+            <a href="signin.html" onclick="underlineOnClick(this)" class="header-nav-link"><img src="shopicon.png" alt="Shop" class="icon"></a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1><b>Welcome Back</b></h1>
+        <form>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password" class="password-container">Password</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <i class="far fa-eye password-icon"></i>
+            </div>
+
+            <button type="submit"><b>Sign In</b></button>
+            <p><a href="#"><b>Forgot password?</b></a> <a href="#" style="font-size: 18px;"></a></p>
+            <div class="alternative-login">
+                <p class="or">- or -</p>
+                <div class="login-options">
+                    <button class="google"><img src="g.png" alt="Google" class="icon"><span class="btn-text"><b>Continue with Google</b></span></button>
+                    <button class="facebook"><img src="f.png" alt="Facebook" class="icon"><span class="btn-text"><b>Continue with Facebook</b></span></button>
+                    <button class="apple"><img src="a.png" alt="Apple" class="icon"><span class="btn-text"><b>Continue with Apple</b></span></button>
+                </div>
+            </div>
+        </form>
+        <p>Don't have an account? <a href="#">Sign Up</a></p>
+    </div>
+    <footer class="footer">
+    <div class="footer-column">
+    <div class="logo-column">
+      <div class="logo-container">
+        <a href="index.html" onclick="underlineOnClick(this)">
+          <img src="goodeggslogo.png" alt="Good Eggs" class="logo">
+        </a>
+        <div class="italic-text">a radically fresh market</div>
+      </div>
+    </div>
+    </div>
+  
+    <div class="footer-column">
+    <span class="bold-text">Shop</span>
+    <a href="signin.html" onclick="underlineOnClick(this)">Shop Featured Items</a>
+    <a href="signin.html" onclick="underlineOnClick(this)">Meal Solutions</a>
+    <a href="signin.html" onclick="underlineOnClick(this)">Gift Cards</a>
+    <a href="signin.html" onclick="underlineOnClick(this)">Refer A Friend</a>
+    <a href="signin.html" onclick="underlineOnClick(this)">Join Membership</a>
+    </div>
+  
+    <div class="footer-column">
+    <span class="bold-text">About Good Eggs</span>
+    <a href="signin.html" onclick="underlineOnClick(this)">About Us</a>
+    <a href="signin.html" onclick="underlineOnClick(this)">Blog</a>
+    <a href="signin.html" onclick="underlineOnClick(this)">Food Standards</a>
+    <a href="signin.html" onclick="underlineOnClick(this)">How It Works</a>
+    <a href="signin.html" onclick="underlineOnClick(this)">Careers</a>
+    <a href="signin.html" onclick="underlineOnClick(this)">Sell Your Goods</a>
+    </div>
+  
+    <div class="footer-column">
+    <span class="bold-text">Need Help?</span>
+    <a href="signin.html" onclick="underlineOnClick(this)">Contact Us</a>
+    <a href="signin.html" onclick="underlineOnClick(this)">Help Center</a>
+    <span class="bold-text"><a href="#" onclick="underlineOnClick(this)">Get the App</a></span>
+    <div class="icons">
+      <a href="signin.html" onclick="underlineOnClick(this)"><img src="appleicon.png" alt="Apple"></a>
+      <a href="signin.html" onclick="underlineOnClick(this)"><img src="androidicon.png" alt="Android"></a>
+    </div>
+    </div>
+  
+    <div class="footer-column">
+    <div class="social-icons">
+      <a href="https://twitter.com/?lang-en" onclick="underlineOnClick(this)"><img src="twittericon.png" alt="Twitter"></a>
+      <a href="https://www.facebook.com/login.php/" onclick="underlineOnClick(this)"><img src="facebookicon.png" alt="Facebook"></a>
+      <a href="https://www.instagram.com/" onclick="underlineOnClick(this)"><img src="instagramicon.png" alt="Instagram"></a>
+      <a href="https://www.pinterest.com/" onclick="underlineOnClick(this)"><img src="pinteresticon.png" alt="Pinterest"></a>
+    </div>
+    </div>
+
+    <hr class="horizontal-line">
+  
+    <div class="copy-right-container">
+    <div class="copy-right">
+      <span class="bold-text">© 2024 Good Eggs, Inc. </span><span class="bold-text"><a href="signin.html" onclick="underlineOnClick(this)"> Terms & Privacy</a></span>
+    </div>
+    </div>
+    </footer>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zip Code Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        .header-logo {
+            margin-bottom: 20px;
+        }
+
+        .header-logo img {
+            display: block; 
+            margin: 0 auto; 
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background-color: transparent;
+            outline: none;
+        }
+
+        .btn {
+            padding: 10px 100px;
+            background-color: lightgrey;
+            color: black;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: black;
+        }
+    </style>
+    </head>
+    <body>
+
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <a href="index.html" class="header-logo"><img src="goodlogo.png" alt="Good Eggs Logo" onclick="returnToMainMenu()"></a>
+            </div>
+        </header>
+        <h2>Enter a new zip code for your delivery</h2>
+        <p>You are currently shopping for</p>
+        <p><strong>90039</strong></p>
+        <input type="text" id="newZip" placeholder="Zip Code">
+        <br><br>
+        <button class="btn" onclick="showConfirmation()">Continue</button>
+        <p>Already have an account? <a href="#">Sign in</a></p>
+    </div>
+
+    <script>
+        function showConfirmation() {
+            var newZip = document.getElementById("newZip").value;
+            alert("Zip Code Confirmation:\nYou are currently shopping for: 90039\nNew Zip Code: " + newZip);
+        }
+
+        function returnToMainMenu() {
+            window.location.href = "#";
+        }
+    </script>
+
+    </body>
+</html>
